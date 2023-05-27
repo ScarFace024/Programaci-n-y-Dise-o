@@ -1,0 +1,141 @@
+Codigo HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport">
+    <title>Electricista</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <center>
+        <div id="contenedor">
+        <h1>Empresa de Electricidad</h1>
+
+        <label> Ingrese cantidad de dias a trabajar <input type="number" id="dias"></label>
+        <p></p>
+        <label> Ingrese cantidad de horas por día a trabajar <input type="number" id="horas"></label>
+        <p></p>
+        <label> Trabaja con asistente 
+            <select id="ayuda">
+                <option value="1"> Sí </option>
+                <option value="2"> No</option>
+            </select>
+        </label>
+        <p></p>
+        <label> Costo de materiales ($) <input type="number" id="costo"></label>
+        <p></p>
+
+<input type="button" id="Calcular" value="Enter">
+<p></p>
+</center>
+</div>
+<center>
+     <p id="mensaje"></p> 
+</center>
+
+    
+<script src="jquery.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------
+
+codigo JAVASCRIPT:
+
+$("#Calcular").click(ScarFace);
+
+function ScarFace(){
+    let dias = Number($("#dias").val());
+    let horas = Number($("#horas").val());
+    let ayuda = Number($("#ayuda").val());
+    let costo = Number($("#costo").val());
+    
+    let material = materiales(costo);
+    let sueldoF = sueldo(dias,horas,ayuda);
+
+    if (! positivo(dias,horas)){
+        $("#mensaje").html("Valores incorrectos, ingrese de nuevo");
+        exit;
+    }
+    else {
+        $("#mensaje").html("Costo total del presupuesto: " + "$" + (material + sueldoF));
+    }
+}
+
+function materiales(costo){
+    let costoF = costo + (costo * 0.10);
+    return costoF;
+}
+
+function sueldo(dias,horas,ayuda){
+    let sueldoE = ((horas * 200) * dias);
+    if (ayuda == 1){
+        let sueldoA = ((horas * 150) * dias);
+        let sueldoT = sueldoE + sueldoA;
+        return sueldoT;
+    }
+    if (ayuda == 2){
+        return sueldoE;
+    }
+}
+
+function positivo(dias,horas){
+    if(dias > 0 && horas > 0){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Codigo CSS:
+
+*{
+    background-color:antiquewhite;
+}
+h1{
+    color: rgb(0, 17, 255);
+    text-decoration: underline;
+}
+#dias{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#horas{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#ayuda{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#costo{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#contenedor{
+    width: 500px;
+    border-style: dashed;
+}
+#Calcular{
+    color: aliceblue;
+    background-color: rgb(0, 0, 255);
+    font-size: medium;
+    width: 200px;
+}
+#mensaje {
+    color: rgb(13, 155, 0);
+    width: 500px;
+    height: 20px;
+    border-color: black;
+    border-style: ridge;
+    font-size: large;
+}
+

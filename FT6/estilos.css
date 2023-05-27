@@ -1,0 +1,41 @@
+*{
+    background-color:antiquewhite;
+}
+h1{
+    color: rgb(0, 17, 255);
+    text-decoration: underline;
+}
+#dias{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#horas{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#ayuda{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#costo{
+    border-radius: 10px;
+    background-color: rgb(136, 226, 248);
+}
+#contenedor{
+    width: 500px;
+    border-style: dashed;
+}
+#Calcular{
+    color: aliceblue;
+    background-color: rgb(0, 0, 255);
+    font-size: medium;
+    width: 200px;
+}
+#mensaje {
+    color: rgb(13, 155, 0);
+    width: 500px;
+    height: 20px;
+    border-color: black;
+    border-style: ridge;
+    font-size: large;
+}

@@ -1,0 +1,10 @@
+*{
+    background: wheat;
+}
+input{
+    text-transform: lowercase;
+}
+select{
+    text-transform: lowercase;
+}
+

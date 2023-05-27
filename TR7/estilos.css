@@ -1,0 +1,31 @@
+html{
+    background: rgba(8, 8, 8, 0.486);
+}
+#tabla{
+    color: rgb(255, 255, 255);
+}
+
+.header{
+    padding: 5px;
+    background: black;
+    color: rgb(251, 255, 0);
+    border-style:double;
+    border-color: blue; 
+}
+.empty{
+    color: black;
+    background-color: yellow;
+    border-style:outset ;
+    border-color: aqua;
+}
+.dias{
+    color: black;
+    background-color: yellow;
+    border-style:outset ;
+    border-color: aqua;
+}
+.mes{
+    color: rgb(1, 255, 255);
+    font-family: cursive;
+    text-decoration: underline;
+}

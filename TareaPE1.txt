@@ -1,0 +1,95 @@
+Codigo HTML: ingresarcliente.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea para Entregar</title>
+    <link rel="stylesheet" href="estilos1.css">
+</head>
+<body>
+    <center>
+        <h1>TAREA</h1>
+
+    <form class="form-registro"action="mostrarCliente.php" method="post">
+
+        <input type="text" placeholder="Ingrese Nombre" name="nombre">
+        <p></p>
+
+        <input type="text" placeholder="Ingrese Apellido" name="apellido">
+        <p></p>
+
+        <input type="date" name="nacimiento">
+        <p></p>
+
+        <input type="email" placeholder="Ingrese Correo" name="email">
+        <p></p>
+
+        <p>Signo del Zodiaco
+        <select name="signo">
+            <option value="Aries">Aries</option>
+            <option value="Tauro">Tauro</option>
+            <option value="Géminis">Géminis</option>
+            <option value="Cáncer">Cáncer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Escorpio">Escorpio</option>
+            <option value="Sagitario">Sagitario</option>
+            <option value="Capricornio">Capricornio</option>
+            <option value="Acuario">Acuario</option>
+            <option value="Piscis">Piscis</option>
+        </select>
+    </p>
+
+        <p></p>
+        <input class="boton" type="submit" value="Enviar">
+    </form>
+</center>
+</body>
+</html>
+
+
+--------------------------------------------------------------------------------------------------------------------------Codigo PHP y HTML: mostrarcliente.php
+<?php
+
+    //echo $_REQUEST['nombre'] ? $_REQUEST['nombre'] : "no ingresaste nombre"; 
+    if($_POST){
+        $nom = $_REQUEST['nombre'];
+        $ape = $_REQUEST['apellido'];
+        $nac = $_REQUEST['nacimiento'];
+        $email = $_REQUEST['email'];
+        $signo = $_REQUEST['signo'];
+        
+        //   echo "Hola $nombre". " ". $apellido;
+ 
+    }
+
+    
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muestra ingreso</title>
+    <link rel="stylesheet" href="estilos1.css">
+</head>
+<body>
+    <center>
+    <form class="form-registro">
+        <h2>Persona</h2>
+        <p></p>
+        <p> <?= $nom;?> <?= $ape;?></p>
+        <p>Nacido en: <?= $nac;?></p>
+        <p>Dirección de correo electrónico: <?= $email;?></p>
+        <p>Signo del zodiaco: <?= $signo;?></p>
+
+        <p class="regresar"><a href="ingresarCliente.html">Volver</a></p>
+    </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			border: 1px solid black;
+			padding: 10px;
+		}
+		input {
+			width: 100%;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<input type="text" id="resultado" readonly>
+		<table>
+			<tr>
+				<td><button type="button" onclick="agregarNumero('7')">7</button></td>
+				<td><button type="button" onclick="agregarNumero('8')">8</button></td>
+				<td><button type="button" onclick="agregarNumero('9')">9</button></td>
+				<td><button type="button" onclick="operacion('+')">+</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="agregarNumero('4')">4</button></td>
+				<td><button type="button" onclick="agregarNumero('5')">5</button></td>
+				<td><button type="button" onclick="agregarNumero('6')">6</button></td>
+				<td><button type="button" onclick="operacion('-')">-</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="agregarNumero('1')">1</button></td>
+				<td><button type="button" onclick="agregarNumero('2')">2</button></td>
+				<td><button type="button" onclick="agregarNumero('3')">3</button></td>
+				<td><button type="button" onclick="operacion('*')">*</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="agregarNumero('0')">0</button></td>
+				<td><button type="button" onclick="agregarNumero('.')">.</button></td>
+				<td><button type="button" onclick="borrar()">C</button></td>
+				<td><button type="button" onclick="operacion('/')">/</button></td>
+			</tr>
+			<tr>
+				<td colspan="4"><button type="button" onclick="calcular()">=</button></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var operando1 = '';
+		var operando2 = '';
+		var operacion = '';
+		
+		function agregarNumero(numero) {
+			if (operacion === '') {
+				operando1 += numero;
+			} else {
+				operando2 += numero;
+			}
+			document.getElementById('resultado').value += numero;
+		}
+		
+		function operacion(op) {
+			if (operando1 === '') {
+				alert('Ingrese un número primero');
+			} else {
+				operacion = op;
+				document.getElementById('resultado').value += op;
+			}
+		}
+		
+		function calcular() {
+			if (operando2 === '') {
+				alert('Ingrese un segundo número');
+			} else {
+				var resultado = eval(operando1 + operacion + operando2);
+				document.getElementById('resultado').value = resultado;
+				operando1 = resultado;
+				operando2 = '';
+				operacion = '';
+			}
+		}
+		
+	
